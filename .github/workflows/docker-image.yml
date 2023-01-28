@@ -21,9 +21,9 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag test-django-app:$(date +%s)
+      run: docker build . --file Dockerfile --tag test-django-app1
     - name: docker tag
-      run: docker tag test-django-app:$(date +%s) ${{secrets.DOCKER_USER}}/test-django-app:v1
+      run: docker tag test-django-app1 ${{secrets.DOCKER_USER}}/test-django-app:v1
     - name: Docker push
       run: docker push ${{secrets.DOCKER_USER}}/test-django-app:v1
 
